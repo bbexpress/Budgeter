@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import BudgetContainer from './Components/BudgetContainer';
+import Header from './Components/Header';
+import Budget from './Components/Budget';
+import AddExpense from './Components/AddExpense';
+import Search from './Components/Search';
+import Expenses from './Components/Expenses';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="BudgetContainer">
+      <BudgetContainer />
+      <div className="Header">
+        <Header />
+      </div>
+      <div className="Budget">
+        <Budget />
+      </div>
+      <div className="Search">
+        <Search />
+      </div>
+      <div className="Expenses">
+        <Expenses />
+      </div>
+      <div className="AddExpense">
+        <AddExpense />
+      </div>
     </div>
   );
 }

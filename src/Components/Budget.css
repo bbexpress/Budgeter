@@ -1,0 +1,9 @@
+.container {
+    display: inline;
+    justify-content: space-between;
+    border-style: solid;
+    width: 20em;
+    height: 50em;
+    padding: 25px, 25px, 25px, 25px;
+}
+
