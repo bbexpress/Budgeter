@@ -1,9 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { useState, createContext } from 'react';
+const ExpenseContext = createContext();
 
-export default class Expenses extends Component {
-  render() {
-    return (
-      <div> Expenses </div>
-    );
-  }
+export default function Expenses() {
+
+  
+
+  return (
+    <div>
+      <ExpenseContext.Provider value = {expenses}>
+        expenses
+      </ExpenseContext.Provider>
+    </div>
+  )
 }
+
+
