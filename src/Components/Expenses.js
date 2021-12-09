@@ -1,11 +1,12 @@
 import React from 'react';
-import { useState, createContext } from 'react';
+import { useState, createContext, useContext } from 'react';
 import './Expenses.css';
-const ExpenseContext = createContext();
+import { ExpenseContext } from './Budget';
+
 
 export default function Expenses() {
 
-  
+  const expense = useContext(ExpenseContext);
 
   return (
     <div>
@@ -20,7 +21,7 @@ export default function Expenses() {
           <td></td>
         </thead>
               <tbody>
-                <tr>
+                {/* <tr>
                   <td>gas</td>
                   <td>50</td>
                   <td>X</td>
@@ -30,7 +31,8 @@ export default function Expenses() {
                   <td>150</td>
                   <td>X</td>
                 </tr>
-        
+         */}
+                {expense.name}
               </tbody>
         
       </table>
