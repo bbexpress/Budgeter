@@ -1,38 +1,39 @@
 import React from 'react';
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
 import './Expenses.css';
 import { ExpenseContext } from './Budget';
 
 
 export default function Expenses() {
 
-  const expense = useContext(ExpenseContext);
+  const count = 0;
+  const [expense, setExpense] = useState([useContext(ExpenseContext)]);
+  console.log(expense);
+
+  //const listItems = expense.map((d) => <li key={d.name}>{d.name}{d.amount}</li>);
+
+  // useEffect(()=>{
+  //   setExpense(()=> 
+  //     count % 2 == 0 ? "even" : "odd");
+      
+  // },[expense]);
 
   return (
     <div>
-      {/* <ExpenseContext.Provider value = {expenses}>
-        expenses
-      </ExpenseContext.Provider> */}
-
       <table>
         <thead>
           <td>Expense</td>
           <td>Cost</td>
-          <td></td>
+          <td>Remove</td>
         </thead>
               <tbody>
-                {/* <tr>
-                  <td>gas</td>
-                  <td>50</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>groceries</td>
-                  <td>150</td>
-                  <td>X</td>
-                </tr>
-         */}
-                {expense.name}
+                  {useContext(ExpenseContext).map((d) => 
+                    <tr>
+                      <td key={d.key}>{d.key}{d.name}</td>
+                      <td key={d.key}>{d.amount}</td>
+                      <td className="remove"><button >x</button></td>
+                    </tr>
+                  )}
               </tbody>
         
       </table>

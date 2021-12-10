@@ -8,3 +8,16 @@ thead {
     border: black;
     border-style: solid;
 }
+
+td {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.remove {
+    border-radius: 10px;
+}
+
+td > .remove {
+    border-radius: 10px;
+}
