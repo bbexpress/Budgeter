@@ -84,7 +84,7 @@ export default function Budget() {
       </ExpenseContext.Provider>
 
 
-      <span>{filteredExpense}</span>
+      <span>{filterExpense}</span>
     </div>
 
   );
