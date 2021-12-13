@@ -4,14 +4,12 @@ table {
     margin-bottom: 20px;
 }
 
-thead {
-    border: black;
-    border-style: solid;
+.thead {
+    border: black solid 1px !important;
 }
 
 td {
-    margin-left: 20%;
-    margin-right: 20%;
+    text-align: center;
 }
 
 .remove {

@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useMemo } from 'react';
 import './Budget.css';
 import Popup from 'reactjs-popup';
 import Expenses from './Expenses';
@@ -12,12 +12,35 @@ export default function Budget() {
   const [budget, setBudget] = useState(0);
   const [expenses, setExpenses] = useState(0);
   const [expenseArray, setExpArray] = useState([]);
+  const [term, setTerm] = useState('');
 
-  const Modal = () => (
-    <Popup trigger={<button className="button"> Edit Budget </button>} modal>
-      <span> Modal content </span>
-    </Popup>
-  );
+ 
+
+  // const filteredExpense = useMemo(() => searchExpense(term), [term]);
+
+  function filterExpense(term){
+    return expenseArray.filter((e)=>{
+      return e.name.includes(term);
+    })
+  }
+
+  function removeExpense(index){
+    setExpenses(parseInt(expenses) - parseInt(expenseArray[index].amount));
+    expenseArray.splice(index,1);
+  }
+
+  function addExpense(val){
+    console.log(val);
+    setExpenses(parseInt(expenses) + parseInt(val.amount));
+    const array = [...expenseArray,val];
+    setExpArray(array);
+  }
+
+  // const Modal = () => (
+  //   <Popup trigger={<button className="button"> Edit Budget </button>} modal>
+  //     <span> Modal content </span>
+  //   </Popup>
+  // );
 
   return (
     <div>
@@ -55,13 +78,13 @@ export default function Budget() {
 
       
       <ExpenseContext.Provider value= {expenseArray}>
-        <Search />
-        <Expenses />
-        <AddExpense />
+        <Search expenseArray = {expenseArray} filterExpense = {filterExpense}/>
+        <Expenses expenseArray = {expenseArray} removeExpense = {removeExpense}/>
+        <AddExpense addExpense = {addExpense}/>
       </ExpenseContext.Provider>
 
 
-
+      <span>{filteredExpense}</span>
     </div>
 
   );

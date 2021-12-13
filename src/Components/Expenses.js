@@ -1,37 +1,32 @@
 import React from 'react';
-import { useState, createContext, useContext, useEffect } from 'react';
+// import { useState, createContext, useContext, useEffect } from 'react';
 import './Expenses.css';
-import { ExpenseContext } from './Budget';
+// import { ExpenseContext } from './Budget';
 
 
-export default function Expenses() {
+export default function Expenses(props) {
 
-  const count = 0;
-  const [expense, setExpense] = useState([useContext(ExpenseContext)]);
-  console.log(expense);
-
-  //const listItems = expense.map((d) => <li key={d.name}>{d.name}{d.amount}</li>);
-
-  // useEffect(()=>{
-  //   setExpense(()=> 
-  //     count % 2 == 0 ? "even" : "odd");
-      
-  // },[expense]);
+  // // const count = 0;
+  // // const [expense, setExpense] = useState([useContext(ExpenseContext)]);
+  function removeExpense(args){
+    console.log(args);
+    props.removeExpense(args);
+  }
 
   return (
     <div>
       <table>
-        <thead>
-          <td>Expense</td>
-          <td>Cost</td>
-          <td>Remove</td>
+        <thead className='thead'>
+          <th>Expense</th>
+          <th>Cost</th>
+          <th>Remove</th>
         </thead>
               <tbody>
-                  {useContext(ExpenseContext).map((d) => 
-                    <tr>
-                      <td key={d.key}>{d.key}{d.name}</td>
-                      <td key={d.key}>{d.amount}</td>
-                      <td className="remove"><button >x</button></td>
+                  {props.expenseArray.map((d,index) => 
+                    <tr key = {index}>
+                      <td >{d.name}</td>
+                      <td >{d.amount}</td>
+                      <td className="remove"><button onClick={(event) =>{removeExpense(index)}}>x</button></td>
                     </tr>
                   )}
               </tbody>
