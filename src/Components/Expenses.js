@@ -22,7 +22,7 @@ export default function Expenses(props) {
           <th>Remove</th>
         </thead>
               <tbody>
-                  {props.expenseArray.map((d,index) => 
+                  {props.expenseArray.filter(expense => expense.name.includes(props.term)).map((d,index) => 
                     <tr key = {index}>
                       <td >{d.name}</td>
                       <td >{d.amount}</td>
