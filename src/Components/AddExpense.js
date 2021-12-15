@@ -3,18 +3,13 @@ import { useState } from 'react';
 
 export default function AddExpense(props) {
 
-  const [expense, addExpense] = useState([]);
-
-
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
 
   const updateExpenses =(args)=> {
     console.log(args);
     props.addExpense(args);
-    
   }
-
 
   return (
     <div>

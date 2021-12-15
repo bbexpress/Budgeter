@@ -1,13 +1,8 @@
 import React from 'react';
-// import { useState, createContext, useContext, useEffect } from 'react';
 import './Expenses.css';
-// import { ExpenseContext } from './Budget';
-
 
 export default function Expenses(props) {
 
-  // // const count = 0;
-  // // const [expense, setExpense] = useState([useContext(ExpenseContext)]);
   function removeExpense(args){
     console.log(args);
     props.removeExpense(args);
@@ -17,9 +12,11 @@ export default function Expenses(props) {
     <div>
       <table>
         <thead className='thead'>
-          <th>Expense</th>
-          <th>Cost</th>
-          <th>Remove</th>
+          <tr>
+            <th>Expense</th>
+            <th>Cost</th>
+            <th>Remove</th>
+          </tr>
         </thead>
               <tbody>
                   {props.expenseArray.filter(expense => expense.name.includes(props.term)).map((d,index) => 

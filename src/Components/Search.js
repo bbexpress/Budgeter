@@ -1,4 +1,5 @@
 import React from 'react'
+import './Search.css'
 
 function Search(props) {
 
@@ -10,8 +11,8 @@ function Search(props) {
 
   return (
     <div>
-      <label htmlFor="searchInput">Search: </label>
-      <input type="text" name="searchInput" onChange={(event)=> updateSearch(event.target.value)} />
+      <label htmlFor="searchInput"><h2>Search: </h2></label>
+      <input type="text" name="searchInput" className="search-input" onChange={(event)=> updateSearch(event.target.value)} />
     </div>
   )
 }
